@@ -1,0 +1,65 @@
+﻿@model GeneralStore.MVC.Models.Transaction
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    Are you sure you want to checkout? </br>
+    These are the items that are in your cart .
+</p>
+
+<p>
+    @Html.ActionLink("Create", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TransactionID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalCost)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransationID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCost)
+            </td>
+            <td>
+                @Html.ActionLink("Change", "Edit", new { id = item.TransationID }) |
+                @Html.ActionLink("More Info", "Details", new { id = item.Customer }) |
+                @Html.ActionLink("Remove", "Delete", new { id = item.Product }) |
+                @Html.ActionLink("Remove", "Delete", new { id = item.Quantity }) |
+                @Html.ActionLink("Remove", "Delete", new { id = item.TotalCost }) |
+            </td>
+        </tr>
+    }
+</table>

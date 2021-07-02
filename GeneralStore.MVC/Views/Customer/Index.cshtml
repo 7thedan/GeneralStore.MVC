@@ -1,0 +1,45 @@
+﻿@model IEnumerable<GeneralStore.MVC.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    Our General Store, located in the rural Indiana, is host to a multitude of fine food and items of distinction.</br>
+    Come browse our product and see what we have for you.
+</p>
+
+<p>
+    @Html.ActionLink("Create", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerID)
+            </td>
+            <td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.ActionLink("Change", "Edit", new { id = item.CustomerID }) |
+                @Html.ActionLink("More Info", "Details", new { id = item.FirstName }) |
+            </td>
+        </tr>
+    }
+</table>
